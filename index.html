@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="VoyageX – Premium travel booking. Flights, trains, buses & cabs at best fares."
+    />
+    <title>LetsTravel – Explore the World</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Ambient Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <span>LetsTravel</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li class="dropdown">
+          <a href="#travel"
+            >Travel
+            <i
+              class="fas fa-chevron-down"
+              style="font-size: 0.65rem; margin-left: 2px"
+            ></i
+          ></a>
+          <div class="dropdown-menu">
+            <a href="#travel"><i class="fas fa-plane"></i> Flights</a>
+            <a href="#travel"><i class="fas fa-train"></i> Trains</a>
+            <a href="#travel"><i class="fas fa-bus"></i> Buses</a>
+            <a href="#travel"><i class="fas fa-car"></i> Cabs</a>
+          </div>
+        </li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#fare">Fare Calculator</a></li>
+        <li><a href="#features">Why Us</a></li>
+        <li><a href="#search" class="nav-cta">Book Now</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-sparkles"></i> #1 Travel Platform in India
+        </div>
+        <h1>Discover Your Next <span class="gradient">Adventure</span></h1>
+        <p>
+          Book flights, trains, buses & cabs to 500+ destinations. Unbeatable
+          prices, instant confirmations, and a seamless experience.
+        </p>
+        <div class="hero-btns">
+          <a href="#search" class="btn btn-primary"
+            ><i class="fas fa-search"></i> Explore Now</a
+          >
+          <a href="#travel" class="btn btn-ghost"
+            ><i class="fas fa-play"></i> How It Works</a
+          >
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">500+</div>
+            <div class="label">Destinations</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">2M+</div>
+            <div class="label">Happy Travelers</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">4.9★</div>
+            <div class="label">User Rating</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">24/7</div>
+            <div class="label">Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search -->
+    <div class="search-section" id="search">
+      <div class="search-box">
+        <div class="search-tabs">
+          <button class="search-tab active" data-mode="flight">
+            <i class="fas fa-plane"></i> Flights
+          </button>
+          <button class="search-tab" data-mode="train">
+            <i class="fas fa-train"></i> Trains
+          </button>
+          <button class="search-tab" data-mode="bus">
+            <i class="fas fa-bus"></i> Buses
+          </button>
+          <button class="search-tab" data-mode="cab">
+            <i class="fas fa-car"></i> Cabs
+          </button>
+        </div>
+        <div class="search-fields">
+          <div class="field-group">
+            <label>From</label>
+            <select id="fromCity">
+              <option value="">Select Origin</option>
+              <option>Delhi</option>
+              <option>Mumbai</option>
+              <option>Bangalore</option>
+              <option>Chennai</option>
+              <option>Kolkata</option>
+              <option>Hyderabad</option>
+              <option>Pune</option>
+              <option>Jaipur</option>
+              <option>Goa</option>
+              <option>Ahmedabad</option>
+              <option>Lucknow</option>
+              <option>Kochi</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>To</label>
+            <select id="toCity">
+              <option value="">Select Destination</option>
+              <option>Delhi</option>
+              <option>Mumbai</option>
+              <option>Bangalore</option>
+              <option>Chennai</option>
+              <option>Kolkata</option>
+              <option>Hyderabad</option>
+              <option>Pune</option>
+              <option>Jaipur</option>
+              <option>Goa</option>
+              <option>Ahmedabad</option>
+              <option>Lucknow</option>
+              <option>Kochi</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Date</label>
+            <input type="date" id="travelDate" />
+          </div>
+          <button class="search-btn" id="searchBtn">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Travel Modes -->
+    <section id="travel">
+      <div class="section-header">
+        <div class="tag"><i class="fas fa-route"></i> Travel Modes</div>
+        <h2>Choose How You <span>Travel</span></h2>
+        <p>
+          From budget buses to luxury flights — we have every mode covered for
+          your perfect journey.
+        </p>
+      </div>
+      <div class="travel-grid">
+        <div
+          class="travel-card reveal"
+          data-mode="flight"
+          onclick="selectMode('flight')"
+        >
+          <img src="images/flight.png" alt="Flights" />
+          <div class="travel-card-overlay">
+            <div class="icon-badge">✈️</div>
+            <h3>Flights</h3>
+            <p>Domestic & international air travel to 200+ cities</p>
+            <div class="price">From ₹2,499</div>
+          </div>
+        </div>
+        <div
+          class="travel-card reveal"
+          data-mode="train"
+          onclick="selectMode('train')"
+        >
+          <img src="images/train.png" alt="Trains" />
+          <div class="travel-card-overlay">
+            <div class="icon-badge">🚆</div>
+            <h3>Trains</h3>
+            <p>Scenic rail journeys across India's vast network</p>
+            <div class="price">From ₹350</div>
+          </div>
+        </div>
+        <div
+          class="travel-card reveal"
+          data-mode="bus"
+          onclick="selectMode('bus')"
+        >
+          <img src="images/bus.png" alt="Buses" />
+          <div class="travel-card-overlay">
+            <div class="icon-badge">🚌</div>
+            <h3>Buses</h3>
+            <p>AC sleeper & Volvo buses on all major routes</p>
+            <div class="price">From ₹199</div>
+          </div>
+        </div>
+        <div
+          class="travel-card reveal"
+          data-mode="cab"
+          onclick="selectMode('cab')"
+        >
+          <img src="images/cab.png" alt="Cabs" />
+          <div class="travel-card-overlay">
+            <div class="icon-badge">🚕</div>
+            <h3>Cabs</h3>
+            <p>Premium door-to-door intercity cab service</p>
+            <div class="price">From ₹12/km</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dest-section" id="destinations">
+      <div class="section-header">
+        <div class="tag">
+          <i class="fas fa-compass"></i> Popular Destinations
+        </div>
+        <h2>Trending <span>Destinations</span></h2>
+        <p>Handpicked spots loved by millions of Indian travelers</p>
+      </div>
+
+      <div class="dest-grid">
+        <!-- Goa -->
+        <div class="dest-card reveal">
+          <div class="dest-card-img">
+            <img
+              src="https://images.pexels.com/photos/35916755/pexels-photo-35916755.jpeg"
+              alt="Goa"
+            />
+            <div class="rating">⭐ 4.8</div>
+          </div>
+          <div class="dest-card-body">
+            <h3>Goa</h3>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i> West India · Beaches
+            </div>
+          </div>
+        </div>
+
+        <!-- Manali -->
+        <div class="dest-card reveal">
+          <div class="dest-card-img">
+            <img
+              src="https://images.pexels.com/photos/15146122/pexels-photo-15146122.jpeg"
+              alt="Manali"
+            />
+            <div class="rating">⭐ 4.7</div>
+          </div>
+          <div class="dest-card-body">
+            <h3>Manali</h3>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i> Himachal Pradesh
+            </div>
+          </div>
+        </div>
+
+        <!-- Jaipur -->
+        <div class="dest-card reveal">
+          <div class="dest-card-img">
+            <img
+              src="https://images.pexels.com/photos/16534739/pexels-photo-16534739.jpeg"
+              alt="Jaipur"
+            />
+            <div class="rating">⭐ 4.6</div>
+          </div>
+          <div class="dest-card-body">
+            <h3>Jaipur</h3>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i> Rajasthan · Pink City
+            </div>
+          </div>
+        </div>
+
+        <!-- Kerala -->
+        <div class="dest-card reveal">
+          <div class="dest-card-img">
+            <img
+              src="https://images.pexels.com/photos/29356109/pexels-photo-29356109.jpeg"
+              alt="Kerala"
+            />
+            <div class="rating">⭐ 4.9</div>
+          </div>
+          <div class="dest-card-body">
+            <h3>Kerala</h3>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i> God's Own Country
+            </div>
+          </div>
+        </div>
+
+        <!-- Udaipur -->
+        <div class="dest-card reveal">
+          <div class="dest-card-img">
+            <img
+              src="https://images.pexels.com/photos/36187688/pexels-photo-36187688.jpeg"
+              alt="Udaipur"
+            />
+            <div class="rating">⭐ 4.7</div>
+          </div>
+          <div class="dest-card-body">
+            <h3>Udaipur</h3>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i> Rajasthan · City of Lakes
+            </div>
+          </div>
+        </div>
+
+        <!-- Andaman -->
+        <div class="dest-card reveal">
+          <div class="dest-card-img">
+            <img
+              src="https://images.pexels.com/photos/29175703/pexels-photo-29175703.jpeg"
+              alt="Andaman"
+            />
+            <div class="rating">⭐ 4.8</div>
+          </div>
+          <div class="dest-card-body">
+            <h3>Andaman</h3>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i> Bay of Bengal
+            </div>
+          </div>
+        </div>
+
+        <!-- Shimla -->
+        <div class="dest-card reveal">
+          <div class="dest-card-img">
+            <img
+              src="https://images.pexels.com/photos/30550230/pexels-photo-30550230.jpeg"
+              alt="Shimla"
+            />
+            <div class="rating">⭐ 4.6</div>
+          </div>
+          <div class="dest-card-body">
+            <h3>Shimla</h3>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i> Himachal Pradesh
+            </div>
+          </div>
+        </div>
+
+        <!-- Varanasi -->
+        <div class="dest-card reveal">
+          <div class="dest-card-img">
+            <img
+              src="https://images.pexels.com/photos/31630950/pexels-photo-31630950.jpeg"
+              alt="Varanasi"
+            />
+            <div class="rating">⭐ 4.7</div>
+          </div>
+          <div class="dest-card-body">
+            <h3>Varanasi</h3>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i> Uttar Pradesh · Holy City
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fare Calculator -->
+    <section class="fare-section" id="fare">
+      <div class="section-header">
+        <div class="tag"><i class="fas fa-calculator"></i> Smart Pricing</div>
+        <h2>Instant <span>Fare Calculator</span></h2>
+        <p>Get estimated fares for any route across all travel modes</p>
+      </div>
+      <div class="fare-calc reveal">
+        <div class="fare-form">
+          <div class="fare-row">
+            <div class="field-group">
+              <label>From</label>
+              <select id="fareFrom">
+                <option value="">Select Origin</option>
+                <option>Delhi</option>
+                <option>Mumbai</option>
+                <option>Bangalore</option>
+                <option>Chennai</option>
+                <option>Kolkata</option>
+                <option>Hyderabad</option>
+                <option>Pune</option>
+                <option>Jaipur</option>
+                <option>Goa</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>To</label>
+              <select id="fareTo">
+                <option value="">Select Destination</option>
+                <option>Delhi</option>
+                <option>Mumbai</option>
+                <option>Bangalore</option>
+                <option>Chennai</option>
+                <option>Kolkata</option>
+                <option>Hyderabad</option>
+                <option>Pune</option>
+                <option>Jaipur</option>
+                <option>Goa</option>
+              </select>
+            </div>
+          </div>
+          <div class="fare-row">
+            <div class="field-group">
+              <label>Travel Mode</label>
+              <select id="fareMode">
+                <option value="flight">✈️ Flight</option>
+                <option value="train">🚆 Train</option>
+                <option value="bus">🚌 Bus</option>
+                <option value="cab">🚕 Cab</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Passengers</label>
+              <select id="farePassengers">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+          <button
+            class="search-btn"
+            id="calcFareBtn"
+            style="width: 100%; justify-content: center"
+          >
+            <i class="fas fa-calculator"></i> Calculate Fare
+          </button>
+        </div>
+        <div class="fare-result" id="fareResult">
+          <p
+            style="
+              color: var(--text-dim);
+              margin-bottom: 8px;
+              font-size: 0.9rem;
+            "
+          >
+            Estimated Total Fare
+          </p>
+          <div class="total" id="totalFare">₹0</div>
+          <div class="breakdown" id="fareBreakdown"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+      <div class="section-header">
+        <div class="tag"><i class="fas fa-star"></i> Why LetsTravel</div>
+        <h2>Built for <span>Smart Travelers</span></h2>
+        <p>We make every journey effortless with premium features</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">💰</div>
+          <h3>Best Price Guarantee</h3>
+          <p>
+            Lowest fares with our price-match promise across all travel modes.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure Payments</h3>
+          <p>Military-grade encryption protects your data and transactions.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant Booking</h3>
+          <p>
+            Get confirmed e-tickets in seconds, sent directly to your inbox.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🌍</div>
+          <h3>24/7 Support</h3>
+          <p>
+            Travel experts available round the clock to assist you anywhere.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section style="background: var(--dark2)">
+      <div class="section-header">
+        <div class="tag"><i class="fas fa-heart"></i> Reviews</div>
+        <h2>What Travelers <span>Say</span></h2>
+        <p>Real stories from our happy travelers around India</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <div class="quote">
+            "Booked a last-minute flight from Delhi to Goa. The prices were
+            incredible and the booking was done in seconds. Best travel app
+            ever!"
+          </div>
+          <div class="author">
+            <div class="avatar">RS</div>
+            <div class="author-info">
+              <div class="name">Rahul Sharma</div>
+              <div class="role">Frequent Traveler</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <div class="quote">
+            "The fare calculator helped me plan my family trip budget perfectly.
+            We saved over ₹5,000 by comparing train vs flight prices!"
+          </div>
+          <div class="author">
+            <div class="avatar">PK</div>
+            <div class="author-info">
+              <div class="name">Priya Krishnan</div>
+              <div class="role">Family Traveler</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <div class="quote">
+            "Seamless cab booking from Mumbai to Pune. Driver arrived on time
+            and the ride was super comfortable. Highly recommended!"
+          </div>
+          <div class="author">
+            <div class="avatar">AM</div>
+            <div class="author-info">
+              <div class="name">Arjun Mehta</div>
+              <div class="role">Business Traveler</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="cta-banner reveal">
+        <h2>Ready for Your Next Journey?</h2>
+        <p>
+          Join 2 million happy travelers. Book your trip today and save up to
+          40%!
+        </p>
+        <a href="#search" class="btn"
+          ><i class="fas fa-rocket"></i> Start Booking Now</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <div class="logo">
+            <div class="logo-icon">✈</div>
+            <span>LetsTravel</span>
+          </div>
+          <p class="footer-desc">
+            Your one-stop travel companion for flights, trains, buses & cabs.
+            Explore India with ease and comfort.
+          </p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Travel</h4>
+          <a href="#">Flights</a><a href="#">Trains</a><a href="#">Buses</a
+          ><a href="#">Cabs</a><a href="#">Hotels</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#">About Us</a><a href="#">Careers</a><a href="#">Blog</a
+          ><a href="#">Press</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="#">Help Center</a><a href="#">Contact</a
+          ><a href="#">Refund Policy</a><a href="#">Terms</a
+          ><a href="#">Privacy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 LetsTravel. All rights reserved. Made with ❤️ for travelers.
+      </div>
+    </footer>
+
+    <!-- Search Results Overlay -->
+    <div class="results-overlay" id="resultsOverlay">
+      <div class="results-panel">
+        <div class="results-header">
+          <h3 id="resultsTitle"><i class="fas fa-plane"></i> Flight Results</h3>
+          <button class="results-close" id="resultsClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="results-filters" id="resultsFilters"></div>
+        <div class="results-body" id="resultsBody"></div>
+      </div>
+    </div>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="booking-modal" id="bookingModal">
+      <div class="booking-content">
+        <div class="booking-check">✓</div>
+        <h3>Booking Confirmed!</h3>
+        <p>
+          Your trip has been booked successfully. A confirmation email will be
+          sent shortly.
+        </p>
+        <div class="booking-details" id="bookingDetails"></div>
+        <button
+          class="search-btn"
+          id="bookingClose"
+          style="width: 100%; justify-content: center"
+        >
+          <i class="fas fa-check"></i> Done
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
